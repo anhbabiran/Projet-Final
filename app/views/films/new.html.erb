@@ -1,0 +1,42 @@
+<section class="container">
+            <h2 class="page-heading heading--outcontainer">Create</h2>
+            <div class="contact">
+                <p class="contact__title">You have any questions or need help, <br><span class="contact__describe">don’t be shy and contact us</span></p>
+                <span class="contact__mail">support@amovie.com</span>
+                <span class="contact__tel">support@amovie.com</span>
+            </div>
+</section>
+
+
+<div class="contact-form-wrapper">
+    <div class="container">
+        <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <div class="form row">
+                <%= form_for @film do |f| %>
+                <div class="contact">
+                    <p class="contact__title">Create New Film<br>
+                        <span class="contact__describe">welcome to A.Movie</span>
+                    </p>
+                </div>
+
+                <div class="col-sm-6">
+                    <%= f.text_field :name, class:"form__name",placeholder:'Name' %>
+                </div>
+
+                <div class="col-sm-6">
+                    <%= f.text_field :director, class:"form__name",placeholder:'Director' %>
+                </div>
+                <div class="col-sm-12">
+                    <%= f.text_area :description,class:"form__message",placeholder:'Description'  %>
+                </div>
+                <div class="col-sm-12">
+
+                    <%= f.text_field :country, class:"form__name",placeholder:'Country' %>
+                </div>
+                <%= f.submit class: "btn btn-md btn--danger"%>
+
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
