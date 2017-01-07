@@ -8,6 +8,7 @@ class FilmsController < ApplicationController
 
   def create
     @film = Film.new(film_params)
+
     if @film.save
       redirect_to @film
     else
