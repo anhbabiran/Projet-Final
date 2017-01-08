@@ -1,0 +1,29 @@
+<h1>Best Offers</h1>
+
+<div class="movie__btns">
+  <button class="btn btn-md btn--warning"><%= link_to "New offers", new_offer_path %></button>
+</div>
+<table>
+  <tr>
+      <th>#</th>
+      <th>name</th>
+      <th>prix</th>
+      <th>time</th>
+      <th>detail</th>
+  </tr>
+
+  <% @offers.each do |offer| %>
+  <tr>
+      <th><%= offer.id %></th>
+      <th><%= offer.name %></th>
+      <th><%= offer.prix %></th>
+      <th><%= offer.time %></th>
+      <th><%= offer.detail %></th>
+      <td>
+        <th><%= link_to "Show", offer_path(offer.id) %></th>
+        <th><%= link_to "Edit", edit_offer_path(offer.id) %></th>
+      </td>
+  </tr>
+  <% end %>
+
+</table>
