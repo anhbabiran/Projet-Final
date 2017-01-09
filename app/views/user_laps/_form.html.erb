@@ -1,0 +1,27 @@
+<%= form_for(user_lap) do |f| %>
+  <% if user_lap.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_lap.errors.count, "error") %> prohibited this user_lap from being saved:</h2>
+
+      <ul>
+      <% user_lap.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
