@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: duwkitxer
+  api_key: '481952334894234'
+  api_secret: YD6XgGtO26ozPn3ky70cIQLMSJ4
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: duwkitxer
+  api_key: '481952334894234'
+  api_secret: YD6XgGtO26ozPn3ky70cIQLMSJ4
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: duwkitxer
+  api_key: '481952334894234'
+  api_secret: YD6XgGtO26ozPn3ky70cIQLMSJ4
+  enhance_image_tag: true
+  static_image_support: false

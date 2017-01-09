@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  resources :homes
+  root 'homes#index'
+  #resources :homes
   resources :cinemalist
+  resources :films
 end
