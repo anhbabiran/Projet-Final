@@ -6,8 +6,6 @@
       </div>
 </div>
 
-
-
 <div class="col-sm-4 col-md-3 movie-mobile">
   <% unless @offer.image_url.nil? %><%= image_tag @offer.image_url %><%end%>
 </div>
@@ -20,5 +18,10 @@
         <div class="movie__btns">
               <button class="btn btn-md btn--warning"><%= link_to "MENU", offers_path %></button>
               <button class="btn btn-md btn--warning"><%= link_to "Edit", edit_offer_path %></button>
+              <button class="btn btn-md btn--warning">
+              <td><%= link_to "Destroy", offer_path,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+              </button>
         </div>
 </div>
