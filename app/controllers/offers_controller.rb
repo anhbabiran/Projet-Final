@@ -8,8 +8,9 @@ class OffersController < ApplicationController
     prix = params[:offer][:prix]
     time = params[:offer][:time]
     detail = params[:offer][:detail]
+    image = params[:offer][:image]
 
-    offer = Offer.create(name: name, prix: prix, time: time, detail: detail)
+    offer = Offer.create(name: name, prix: prix, time: time, detail: detail, image: image)
 
     if (offer.nil?)
       render 'new'
@@ -31,11 +32,12 @@ class OffersController < ApplicationController
   end
 
   def update
-    offer = Offer.find_by(params[:id])
+    offer = Offer.find(params[:id])
     offer.name = params[:offer][:name]
     offer.prix = params[:offer][:prix]
     offer.time = params[:offer][:time]
     offer.detail = params[:offer][:detail]
+    offer.image = params[:offer][:image]
 
     if (offer.save)
       redirect_to offer_path(params[:id])
