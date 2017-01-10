@@ -1,0 +1,20 @@
+<div class="form row">
+  <h1><i class="fa fa-pencil-square-o"></i></h1>
+
+    <font size ="4" face="Courier New" color="green">
+    <p class="login__title"><h1> CREATE OFFER<br></h1>
+      <span class="login-edition">We always give the best offers</span></p>
+         <%= form_for @offer do |f| %>
+            <div class="field-wrap">
+               <%= f.text_field :name, placeholder:"Name" ,class:"form__name"%><br />
+               <%= f.text_field :prix, placeholder:"Prix" ,class:"form__name"%><br />
+               <%= f.text_field :time, placeholder:"Time" ,class:"form__name"%><br />
+               <%= f.text_field :detail, placeholder:"Detail" ,class:"form__name"%><br />
+               <%= f.file_field :image %><br />
+
+               <br />
+               <%= f.submit class:"btn btn-md btn--warning" %>
+            </div>
+
+         <% end %>
+</div>
