@@ -46,3 +46,5 @@
                 <h2 class="page-heading">The plot</h2>
 
                 <p class="movie__describe"><%= @film.description %></p>
+
+                  <h1><%= link_to "Printable Receipt (PDF)", film_path(@film,format: "pdf") %></h1>
