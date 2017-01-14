@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   #resources :homes
   resources :films
   resources :offers
+
+  resources :user_laps
+  resources :posts
+  resources :contacts
 end
