@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :staffs
-  root 'homes#index'
+  root 'films#index'
   #resources :homes
   resources :films
   resources :offers
