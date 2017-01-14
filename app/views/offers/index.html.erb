@@ -1,11 +1,30 @@
-<h1>Best Offers</h1>
+<h1 style="text-align:center;">Best Offers</h1>
 
+<div class="col-sm-2 col-md-2 movie-mobile">
+</div>
 <div class="movie__btns">
   <button class="btn btn-md btn--warning"><%= link_to "New offers", new_offer_path %></button>
 </div>
 
+  <%= form_tag offers_path, class: "form-inline", method: :get do %>
+  <div class="col-sm-2 col-md-2 movie-mobile">
+  </div>
+
+    <div class="form-group">
+      <label for="">Search</label>
+      <input type="text" class="form-control" name="keyword">
+    </div>
+
+    <button type="submit" class="btn btn-primary" name="bt1">By name</button>
+    <button type="submit" class="btn btn-primary" name="bt3">By prix</button>
+    <button type="submit" class="btn btn-primary" name="bt2" >By detail</button>
+  <% end %>
+
 <% @offers.each do |offer| %>
   <div class="movie movie--preview movie--full release">
+      <div class="col-sm-2 col-md-2 movie-mobile">
+      </div>
+
       <div class="col-sm-4 col-md-3 movie-mobile">
           <%= image_tag offer.image_url %>
       </div>
@@ -18,5 +37,5 @@
               <p class="movie__option"><strong>Detail: </strong><%= offer.detail %> <br/></p>
       </div>
   </div>
-
 <% end %>
+</div>
