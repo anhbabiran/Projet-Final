@@ -189,85 +189,14 @@
                     </li>
                 </ul>
 
-                <input name="search-input" type='text' class="select__field">
-
+                <%= form_tag films_path, class:"form-inline", method: :get do %>
+                <input name="q" type='text' class="select__field">
                 <div class="select__btn">
-                    <a href="#" class="btn btn-md btn--danger location">find
-                        <span class="hidden-exrtasm">your city</span>
-                    </a>
-                    <a href="#" class="btn btn-md btn--danger cinema">find
-                        <span class="hidden-exrtasm">suitable cimema</span>
-                    </a>
-                    <a href="#" class="btn btn-md btn--danger film-category">find
-                        <span class="hidden-exrtasm">best category</span>
-                    </a>
-                    <a href="#" class="btn btn-md btn--danger actors">find
-                        <span class="hidden-exrtasm">talented actors</span>
-                    </a>
-                    <a href="#" class="btn btn-md btn--danger director">find
-                        <span class="hidden-exrtasm">favorite director</span>
-                    </a>
-                    <a href="#" class="btn btn-md btn--danger country">find
-                        <span class="hidden-exrtasm">produced country</span>
-                    </a>
+                  <button type="submit" class="btn btn-md btn--danger country">Search</button>
                 </div>
+                <% end %>
 
-                <div class="select__dropdowns">
-                    <ul class="select__group location">
-                        <li class="select__variant" data-value='London'>London</li>
-                        <li class="select__variant" data-value='New York'>New York</li>
-                        <li class="select__variant" data-value='Paris'>Paris</li>
-                        <li class="select__variant" data-value='Berlin'>Berlin</li>
-                        <li class="select__variant" data-value='Moscow'>Moscow</li>
-                        <li class="select__variant" data-value='Minsk'>Minsk</li>
-                        <li class="select__variant" data-value='Warsawa'>Warsawa</li>
-                    </ul>
 
-                    <ul class="select__group cinema">
-                        <li class="select__variant" data-value='Cineworld'>Cineworld</li>
-                        <li class="select__variant" data-value='Empire'>Empire</li>
-                        <li class="select__variant" data-value='Everyman'>Everyman</li>
-                        <li class="select__variant" data-value='Odeon'>Odeon</li>
-                        <li class="select__variant" data-value='Picturehouse'>Picturehouse</li>
-                    </ul>
-
-                    <ul class="select__group film-category">
-                        <li class="select__variant" data-value="Children's">Children's</li>
-                        <li class="select__variant" data-value='Comedy'>Comedy</li>
-                        <li class="select__variant" data-value='Drama'>Drama</li>
-                        <li class="select__variant" data-value='Fantasy'>Fantasy</li>
-                        <li class="select__variant" data-value='Horror'>Horror</li>
-                        <li class="select__variant" data-value='Thriller'>Thriller</li>
-                    </ul>
-
-                    <ul class="select__group actors">
-                        <li class="select__variant" data-value='Leonardo DiCaprio'>Leonardo DiCaprio</li>
-                        <li class="select__variant" data-value='Johnny Depp'>Johnny Depp</li>
-                        <li class="select__variant" data-value='Jack Nicholson'>Jack Nicholson</li>
-                        <li class="select__variant" data-value='Robert De Niro'>Robert De Niro</li>
-                        <li class="select__variant" data-value='Morgan Freeman'>Morgan Freeman</li>
-                        <li class="select__variant" data-value='Jim Carrey'>Jim Carrey</li>
-                        <li class="select__variant" data-value='Adam Sandler'>Adam Sandler</li>
-                        <li class="select__variant" data-value='Ben Stiller'>Ben Stiller</li>
-                    </ul>
-
-                    <ul class="select__group director">
-                        <li class="select__variant" data-value='Steven Spielberg'>Steven Spielberg</li>
-                        <li class="select__variant" data-value='Martin Scorsese'>Martin Scorsese</li>
-                        <li class="select__variant" data-value='Guy Ritchie'>Guy Ritchie</li>
-                        <li class="select__variant" data-value='Christopher Nolan'>Christopher Nolan</li>
-                        <li class="select__variant" data-value='Tim Burton'>Tim Burton</li>
-                    </ul>
-
-                    <ul class="select__group country">
-                        <li class="select__variant" data-value='USA'>USA</li>
-                        <li class="select__variant" data-value='Germany'>Germany</li>
-                        <li class="select__variant" data-value='Australia'>Australia</li>
-                        <li class="select__variant" data-value='UK'>UK</li>
-                        <li class="select__variant" data-value='Japan'>Japan</li>
-                        <li class="select__variant" data-value='Serbia'>Serbia</li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
@@ -280,18 +209,21 @@
         <div class="row">
             <div class="col-sm-8 col-md-9">
                 <!-- Movie variant with time -->
+              <% @films.each do |film| %>
                 <div class="movie movie--test movie--test--dark movie--test--left">
                     <div class="movie__images">
-                        <a href="movie-page-left.html" class="movie-beta__link">
-                            <img alt='' src="http://placehold.it/424x424">
-                        </a>
+                        <%= link_to film_path(film.id) do %>
+
+                        <%= image_tag film.image_url %>
+
+                        <% end %>
                     </div>
 
                     <div class="movie__info">
-                        <a href='movie-page-left.html' class="movie__title">Gravity (2013)
-                        </a>
 
-                        <p class="movie__time">91 min</p>
+                        <%= link_to film.name, film_path(film.id) ,class:"movie__title"%>
+
+                        <p class="movie__time"> <%= film.duree %> min</p>
 
                         <p class="movie__option">
                             <a href="#">Sci-Fi</a>
@@ -303,10 +235,12 @@
 
                         <div class="movie__rate">
                             <div class="score"></div>
-                            <span class="movie__rating">4.1</span>
+                            <span class="movie__rating"><%= film.star %></span>
                         </div>
                     </div>
                 </div>
+
+              <% end %>
                 <!-- Movie variant with time -->
 
                 <!-- Movie variant with time -->

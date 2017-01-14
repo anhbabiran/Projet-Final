@@ -27,20 +27,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-
-
-  config.action_mailer.default_url_options = {host: "localhost:3000"}
-
-  config.action_mailer.smtp_settings = {
-  address:              'smtp.gmail.com',
-  port:                 587,
-  user_name:            'baozaitestingacc@gmail.com',
-  password:             'jUst_4-testing-man',
-  authentication:       'plain',
-  enable_starttls_auto: true
-}
+  config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 
@@ -64,7 +51,21 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
-Paperclip.options[:content_type_mappings] = { jpeg: 'image/jpeg', jpg: 'image/jpeg' }
+
+  #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+   user_name:      ENV['SENDMAIL_USERNAME'],
+   password:       ENV['SENDMAIL_PASSWORD'],
+   domain:         ENV['MAIL_HOST'],
+   address:       'smtp.gmail.com',
+   port:          '587',
+   authentication: :plain,
+   enable_starttls_auto: true
+  }
 end

@@ -6,14 +6,14 @@
                 <div class="movie__info">
                     <div class="col-sm-4 col-md-3 movie-mobile">
                         <div class="movie__images">
-                            <span class="movie__rating">5.0</span>
+                            <span class="movie__rating"><%= @film.star %></span>
                             <% unless @film.image_url.nil? %><%= image_tag @film.image_url %><%end%>
                         </div>
                         <div class="movie__rate">Your vote: <div id='score' class="score"></div></div>
                     </div>
 
                     <div class="col-sm-8 col-md-9">
-                        <p class="movie__time">169 min</p>
+                        <p class="movie__time"><%= @film.duree %> min</p>
 
                         <p class="movie__option"><strong>Country: </strong><%= @film.country %></p>
                         <p class="movie__option"><strong>Year: </strong><a href="#">2012</a></p>

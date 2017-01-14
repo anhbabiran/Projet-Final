@@ -470,3 +470,13 @@ Start doing.'>
 </div>
 </div>
 <!--end slider -->
+
+<h1>Hello, Rails!</h1>
+<% if staff_signed_in? %>
+  Logged in as <strong><%= current_staff.email %></strong>.
+  <%= link_to 'Edit profile', edit_staff_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_staff_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_staff_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_staff_session_path, :class => 'navbar-link'  %>
+<% end %>
