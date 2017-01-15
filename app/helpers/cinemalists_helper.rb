@@ -1,0 +1,2 @@
+module CinemalistsHelper
+end

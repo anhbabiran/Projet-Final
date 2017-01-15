@@ -5,9 +5,6 @@ class InitSchema < ActiveRecord::Migration[5.0]
       t.text :description
       t.string :director
       t.string :country
-
-      t.string :duree
-      t.string :star
     end
 
 

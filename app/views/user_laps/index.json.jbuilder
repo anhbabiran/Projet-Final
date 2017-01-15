@@ -1,1 +1,0 @@
-json.array! @user_laps, partial: 'user_laps/user_lap', as: :user_lap
