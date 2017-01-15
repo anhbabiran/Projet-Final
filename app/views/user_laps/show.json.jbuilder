@@ -1,1 +1,0 @@
-json.partial! "user_laps/user_lap", user_lap: @user_lap

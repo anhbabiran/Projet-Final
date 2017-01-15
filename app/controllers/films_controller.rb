@@ -1,20 +1,5 @@
 class FilmsController < ApplicationController
   def index
-
-    keyword = params[:q]
-
-    @films = Film.search(keyword)
-
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = FilmPdf.new(@films)
-        send_data pdf.render, filename: "films.pdf",
-                              type: "application/pdf",
-                              disposition: "inline"
-      end
-    end
-
   end
 
   def new
@@ -33,12 +18,11 @@ class FilmsController < ApplicationController
 
   def show
     @film = Film.find(params[:id])
-
   end
 
   private
     def film_params
-        params.require(:film).permit(:name,:description,:director,:country,:image,:duree,:star)
+        params.require(:film).permit(:name,:description,:director,:country,:image)
     end
 
 
