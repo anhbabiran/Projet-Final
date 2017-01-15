@@ -15,6 +15,17 @@ ActiveRecord::Schema.define(version: 20170110042139) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cinemalists", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "web"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "images"
+  end
+
   create_table "films", force: :cascade do |t|
     t.string "name"
     t.text   "description"
