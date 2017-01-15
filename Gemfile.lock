@@ -64,6 +64,10 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.20161129)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.1.1)
+    dotenv-rails (2.1.1)
+      dotenv (= 2.1.1)
+      railties (>= 4.0, < 5.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14-x64-mingw32)
@@ -175,11 +179,13 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt
   bootstrap-sass (~> 3.3.6)
   byebug
   carrierwave
   cloudinary
   devise
+  dotenv-rails
   jbuilder (~> 2.5)
   jquery-rails
   pg
