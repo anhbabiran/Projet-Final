@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class OffersControllerTest < ActionDispatch::IntegrationTest
+class CinemalistTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

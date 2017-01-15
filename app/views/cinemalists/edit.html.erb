@@ -1,0 +1,26 @@
+<div class="category category--discuss marginb-sm">
+                        <h3 class="category__title">EDIT <br><span class="title-edition">different post</span></h3>
+                        <ul>
+                        <div class="form row">
+
+                                 <%= form_for @cinemalist do |f| %>
+                                    <div class="field-wrap">
+
+                                       <%= f.text_field :name, placeholder:"Name" ,class:"form__name"%><br />
+                                       <%= f.text_field :image, placeholder:"Star" ,class:"form__name"%><br />
+                                       <%= f.text_field :address, placeholder:"Adress" ,class:"form__name"%><br />
+                                       <%= f.text_field :phone, placeholder:"Phone" ,class:"form__name"%><br />
+                                       <%= f.text_field :web, placeholder:"Web" ,class:"form__name"%><br />
+                                       <%= f.file_field :images %><br />
+                                       <br />
+                                       <%= f.submit class:"btn btn-md btn--warning" %>
+                                       <div class="movie__btns">
+                                                               <button class="btn btn-md btn--warning"><%= link_to "Cancel", cinemalists_path %></button>
+                                                         </div>
+                                    </div>
+
+                                 <% end %>
+
+                  </div>
+                </ul>
+                    </div>
