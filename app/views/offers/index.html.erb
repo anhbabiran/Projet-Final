@@ -1,6 +1,21 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $("table").hide();
+    });
+    $("#show").click(function(){
+        $("table").show();
+    });
+});
+</script>
+
+
+<button class="btn btn-md btn--warning" id="hide">Hide table</button>
+<button class="btn btn-md btn--warning" id="show">Show table</button>
+
 <a ng-mouseover="openDropdownMenu('adminDropdown')"
    ng-mouseleave="closeDropdownMenu('adminDropdown')">
-
 
 <div class="row">
 <table class="table">
@@ -32,6 +47,8 @@
 </table>
 </div>
 </a>
+
+
 
 <% if client_signed_in? %>
   Logged in as <strong><%= current_client.email %></strong>.
