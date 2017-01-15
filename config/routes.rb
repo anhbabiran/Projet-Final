@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :user_laps
   resources :posts
   resources :contacts
+  
+  resources :a
 end
