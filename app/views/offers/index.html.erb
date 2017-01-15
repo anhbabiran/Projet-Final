@@ -1,0 +1,22 @@
+<h1>Best Offers</h1>
+
+<div class="movie__btns">
+  <button class="btn btn-md btn--warning"><%= link_to "New offers", new_offer_path %></button>
+</div>
+
+<% @offers.each do |offer| %>
+  <div class="movie movie--preview movie--full release">
+      <div class="col-sm-4 col-md-3 movie-mobile">
+          <%= image_tag offer.image_url %>
+      </div>
+
+      <div class="col-sm-8 col-md-6">
+              <h1 class="page-heading"><%=offer.name%></h1>
+              <th><%= link_to "Show", offer_path(offer.id) %></th>
+              <p class="movie__option"><strong>Prix:</strong> <%= offer.prix %> </p>
+              <p class="movie__option"><strong>Time: </strong><%= offer.time %> <br/></p>
+              <p class="movie__option"><strong>Detail: </strong><%= offer.detail %> <br/></p>
+      </div>
+  </div>
+
+<% end %>

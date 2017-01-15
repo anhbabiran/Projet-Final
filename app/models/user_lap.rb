@@ -1,0 +1,2 @@
+class UserLap < ApplicationRecord
+end
