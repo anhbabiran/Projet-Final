@@ -1,3 +1,15 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        var x = $("form").serializeArray();
+        $.each(x, function(i, field){
+            $("#results").append(field.name + ":" + field.value + " ");
+        });
+    });
+});
+</script>
+
 <div class="wrapper">
      <div class="col-sm-12">
           <div class="movie">
@@ -25,3 +37,12 @@
               </button>
         </div>
 </div>
+
+<form action="">
+  Comment: <input type="text" name="Comment">
+
+</form>
+
+<button class="btn btn-md btn--warning">Commit</button>
+
+<div id="results"></div>

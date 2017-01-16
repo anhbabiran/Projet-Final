@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110042139) do
+ActiveRecord::Schema.define(version: 20170114105311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20170110042139) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "images"
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -51,8 +52,6 @@ ActiveRecord::Schema.define(version: 20170110042139) do
     t.text   "description"
     t.string "director"
     t.string "country"
-    t.string "duree"
-    t.string "star"
     t.string "image"
   end
 
@@ -88,10 +87,6 @@ ActiveRecord::Schema.define(version: 20170110042139) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_staffs_on_email", unique: true, using: :btree
