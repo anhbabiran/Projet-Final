@@ -1,12 +1,27 @@
-<%= simple_form_for(@user_ad) do |f| %>
-  <%= f.error_notification %>
+<%= form_for(user_ad) do |f| %>
+  <% if user_ad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_ad.errors.count, "error") %> prohibited this user_ad from being saved:</h2>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :email %>
+      <ul>
+      <% user_ad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
   </div>
 <% end %>
