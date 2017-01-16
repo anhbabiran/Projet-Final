@@ -93,6 +93,21 @@ ActiveRecord::Schema.define(version: 20170114105311) do
     t.index ["reset_password_token"], name: "index_staffs_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "user_admins", force: :cascade do |t|
+    t.string   "name"
+    t.string   "hashed_password"
+    t.string   "salt"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "user_ads", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_laps", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
