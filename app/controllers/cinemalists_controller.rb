@@ -42,7 +42,11 @@ class CinemalistsController < ApplicationController
       @cinemalist = Cinemalist.find(params[:id])
       @cinemalist.destroy
 
-      redirect_to @cinemalist
+      respond_to do |format|
+     format.html { redirect_to cinemalists_url, notice: 'Cinemalist was successfully detroyed' }
+     format.json { head :no_content }
+     format.js   { render :layout => false }
+  end
     end
   private
     def cinemalist_params

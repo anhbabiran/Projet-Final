@@ -1,0 +1,1 @@
+json.array! @user_ads, partial: 'user_ads/user_ad', as: :user_ad

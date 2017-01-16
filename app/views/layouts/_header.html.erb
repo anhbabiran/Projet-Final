@@ -2,12 +2,12 @@
 <header class="header-wrapper header-wrapper--home">
     <div class="container">
         <!-- Logo link-->
-      <div class="logo">
+        <div class="logo">
         <%= link_to root_path do %>
           <%= image_tag("logo.png") %>
         <% end %>
       </a>
-    </div>
+      </div>
         <!-- Main website navigation-->
         <nav id="navigation-box">
             <!-- Toggle for mobile menu mode -->
@@ -155,90 +155,14 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <span class="sub-nav-toggle plus"></span>
-                    <a href="#">Mega menu</a>
-                    <ul class="mega-menu container">
-                        <li class="col-md-3 mega-menu__coloum">
-                            <h4 class="mega-menu__heading">Now in the cinema</h4>
-                            <ul class="mega-menu__list">
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">The Counselor</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Bad Grandpa</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Blue Is the Warmest Color</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Capital</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Spinning Plates</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Bastards</a>
-                                </li>
-                            </ul>
-                        </li>
 
-                        <li class="col-md-3 mega-menu__coloum mega-menu__coloum--outheading">
-                            <ul class="mega-menu__list">
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Gravity</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Captain Phillips</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Carrie</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Cloudy with a Chance of Meatballs 2</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="col-md-3 mega-menu__coloum">
-                            <h4 class="mega-menu__heading">Ending soon</h4>
-                            <ul class="mega-menu__list">
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Escape Plan</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Rush</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Prisoners</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Enough Said</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">The Fifth Estate</a>
-                                </li>
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Runner Runner</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="col-md-3 mega-menu__coloum mega-menu__coloum--outheading">
-                            <ul class="mega-menu__list">
-                                <li class="mega-menu__nav-item">
-                                    <a href="#">Insidious: Chapter 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
             </ul>
         </nav>
     </nav>
 
     <!-- Additional header buttons / Auth and direct link to booking-->
     <div class="control-panel">
+      <% if staff_signed_in? %>
         <div class="auth auth--home">
             <div class="auth__show">
                 <span class="auth__image">
@@ -246,25 +170,24 @@
                 </span>
             </div>
             <a href="#" class="btn btn--sign btn--singin">
-                me
+                <%= current_staff.email %>
             </a>
             <ul class="auth__function">
                 <li>
-                    <a href="#" class="auth__function-item">Watchlist</a>
+                    <%= link_to 'Edit profile', edit_staff_registration_path, class:"auth__function-item" %>
                 </li>
                 <li>
-                    <a href="#" class="auth__function-item">Booked tickets</a>
-                </li>
-                <li>
-                    <a href="#" class="auth__function-item">Discussion</a>
-                </li>
-                <li>
-                    <a href="#" class="auth__function-item">Settings</a>
+                    <%= link_to "Logout", destroy_staff_session_path, method: :delete, class:"auth__function-item"  %>
                 </li>
             </ul>
 
         </div>
-        <a href="#" class="btn btn-md btn--warning btn--book btn-control--home login-window">Book a ticket</a>
+        <% else %>
+          <%= link_to "Sign up", new_staff_registration_path, class:"btn btn-md btn--warning btn--book btn-control--home "  %> |
+          <%= link_to "Login", new_staff_session_path, class:"btn btn-md btn--warning btn--book btn-control--home "  %>
+        <% end %>
+
+
     </div>
 
 </div>
@@ -469,3 +392,6 @@ Start doing.'>
 </div>
 </div>
 <!--end slider -->
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
