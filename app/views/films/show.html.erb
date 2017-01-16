@@ -48,3 +48,9 @@
                 <p class="movie__describe"><%= @film.description %></p>
 
                   <h1><%= link_to "Printable Receipt (PDF)", film_path(@film,format: "pdf") %></h1>
+
+                <button class="btn btn-md btn--warning"><%= link_to "Edit", edit_film_path(@film) %></button>
+                <button class="btn btn-md btn--warning"><%= link_to "Destroy", film_path, method: :delete,
+                                                                                          data: { confirm: 'Are you sure?' } %>
+                </button>
+

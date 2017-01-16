@@ -1,6 +1,13 @@
 class OffersController < ApplicationController
   def index
-    @offers = Offer.all
+    keyword = params[:keyword]
+    if params[:bt1]
+      @offers = Offer.search(keyword)
+    elsif params[:bt3]
+      @offers = Offer.search3(keyword)
+    else
+      @offers = Offer.search2(keyword)
+    end
   end
 
   def create

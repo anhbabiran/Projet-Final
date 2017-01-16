@@ -1,11 +1,107 @@
-<h1>Best Offers</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $("table").hide();
+    });
+    $("#show").click(function(){
+        $("table").show();
+    });
+});
+</script>
 
+<button class="btn btn-md btn--warning" id="hide">Hide table</button>
+<button class="btn btn-md btn--warning" id="show">Show table</button>
+
+<a ng-mouseover="openDropdownMenu('adminDropdown')"
+   ng-mouseleave="closeDropdownMenu('adminDropdown')">
+
+<div class="row">
+<table class="table">
+  <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Prix</th>
+      <th>Time</th>
+      <th>Detail</th>
+      <th>create</th>
+
+  </tr>
+
+  <% @offers.each do |offer| %>
+  <tr onmouseover="onMouseOver(this)" >
+      <td><%= offer.id %></td>
+      <td><%= offer.name %></td>
+      <td><%= offer.prix %></td>
+      <td><%= offer.time %></td>
+      <td><%= offer.detail %></td>
+      <td><%= offer.created_at %></td>
+      <td>
+        <th><%= link_to "Show", offer_path(offer.id) %></th>
+        <th><%= link_to "Edit", edit_offer_path(offer.id) %></th>
+        <td><%= link_to "Destroy", offer_path(offer.id),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+        </button>
+      </td>
+  </tr>
+  <% end %>
+
+</table>
+</div>
+</a>
+
+
+
+<% if client_signed_in? %>
+  Logged in as <strong><%= current_client.email %></strong>.
+  <%= link_to 'Edit profile', edit_client_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_client_session_path, method: :delete, :class => 'navbar-link'  %>
+  <% else %>
+  <%= link_to "Client - Sign up", new_client_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Client - Login", new_client_session_path, :class => 'navbar-link'  %>
+<% end %>
+
+
+<h1 id="text" onmouseover="mouseOver()" onmouseout="mouseOut()" style="text-align:center;">Best Offers</h1>
+
+<script>
+function mouseOver() {
+    document.getElementById("text").style.color = "red";
+}
+
+function mouseOut() {
+    document.getElementById("text").style.color = "blue";
+}
+</script>
+
+<div class="col-sm-2 col-md-2 movie-mobile">
+</div>
 <div class="movie__btns">
   <button class="btn btn-md btn--warning"><%= link_to "New offers", new_offer_path %></button>
 </div>
 
+
+  <%= form_tag offers_path, class: "form-inline", method: :get do %>
+  <div class="col-sm-2 col-md-2 movie-mobile">
+  </div>
+
+    <div class="form-group">
+      <label for="">Search</label>
+      <input type="text" class="form-control" name="keyword">
+    </div>
+
+    <button type="submit" class="btn btn-primary" name="bt1">By name</button>
+    <button type="submit" class="btn btn-primary" name="bt3">By prix</button>
+    <button type="submit" class="btn btn-primary" name="bt2" >By detail</button>
+  <% end %>
+
 <% @offers.each do |offer| %>
+<tr onmouseover="onMouseOver(this)" >
   <div class="movie movie--preview movie--full release">
+      <div class="col-sm-2 col-md-2 movie-mobile">
+      </div>
+
       <div class="col-sm-4 col-md-3 movie-mobile">
           <%= image_tag offer.image_url %>
       </div>
@@ -17,6 +113,9 @@
               <p class="movie__option"><strong>Time: </strong><%= offer.time %> <br/></p>
               <p class="movie__option"><strong>Detail: </strong><%= offer.detail %> <br/></p>
       </div>
+      <td> asd </td>
   </div>
-
+</tr>
 <% end %>
+</div>
+</a>
