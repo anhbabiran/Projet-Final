@@ -18,7 +18,7 @@
                <button class="btn btn-md btn--default" id="hide">Hide table</button>
                <button class="btn btn-md btn--warning" id="show">Show table</button>
        <div class="clearfix"></div>
-<a ng-mouseover="openDropdownMenu('adminDropdown')"
+ <a ng-mouseover="openDropdownMenu('adminDropdown')"
    ng-mouseleave="closeDropdownMenu('adminDropdown')">
 
 <div class="row">
@@ -63,16 +63,14 @@
                                      </a>
                                      <a href="single-cinema.html" class="cinema-title"><%= cinemalist.name %><%= link_to "Show", cinemalist_path(cinemalist.id) %></a>
                                      <a href="single-cinema.html" class="cinema-md cinema--slow"><%= link_to "Edit", edit_cinemalist_path(cinemalist.id) %>
-                                     <a href="single-cinema.html" class="cinema-md "><%= link_to "Destroy", cinemalist_path(cinemalist.id),
-                                    data: { confirm: 'Are you sure?' }, :method => :delete,:remote => true, :class => 'delete_cinemalist' %></a>
 
                                  </div>
                              </div>
                            </div>
                          </div>
-                           </tr>
+        </tr>
    <% end %>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
 $("#hide").click(function(){
