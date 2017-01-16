@@ -7,6 +7,19 @@
             </div>
 </section>
 
+<script>
+$(document).ready(function(){
+    $(document).ajaxStart(function(){
+        $("#wait").css("display", "block");
+    });
+    $(document).ajaxComplete(function(){
+        $("#wait").css("display", "none");
+    });
+    $("#aaa").click(function(){
+        $("#txt").load("http://www.w3schools.com/jquery/demo_ajax_load.asp");
+    });
+});
+</script>
 
 <div class="contact-form-wrapper">
     <div class="container">
@@ -46,8 +59,13 @@
                     <%= f.text_field :country, class:"form__name",placeholder:'Country' %>
                 </div>
                 <div class="col-sm-12">
-                  <%= f.file_field :image %>
+                  <%= f.file_field :image , id:"aaa"%>
                 </div>
+                <div id="txt"></div>
+                <div id="wait" style="display:none">
+                            <img src='http://www.w3schools.com/jquery/demo_wait.gif' />
+                            <br />Please Wait While Loading Data ...</div>
+
                 <%= f.submit class: "btn btn-md btn--danger"%>
 
                 <% end %>
