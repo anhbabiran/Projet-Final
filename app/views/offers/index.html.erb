@@ -75,7 +75,7 @@ function mouseOut() {
 }
 </script>
 
-<div class="col-sm-2 col-md-2 movie-mobile">
+<div class="col-sm-1 col-md-1 movie-mobile">
 </div>
 <div class="movie__btns">
   <button class="btn btn-md btn--warning"><%= link_to "New offers", new_offer_path %></button>
@@ -83,7 +83,7 @@ function mouseOut() {
 
 
   <%= form_tag offers_path, class: "form-inline", method: :get do %>
-  <div class="col-sm-2 col-md-2 movie-mobile">
+  <div class="col-sm-1 col-md-1 movie-mobile">
   </div>
 
     <div class="form-group">
@@ -99,10 +99,10 @@ function mouseOut() {
 <% @offers.each do |offer| %>
 <tr onmouseover="onMouseOver(this)" >
   <div class="movie movie--preview movie--full release">
-      <div class="col-sm-2 col-md-2 movie-mobile">
+      <div class="col-sm-1 col-md-1 movie-mobile">
       </div>
 
-      <div class="col-sm-4 col-md-3 movie-mobile">
+      <div class="col-sm-8 col-md-4 movie-mobile">
           <%= image_tag offer.image_url %>
       </div>
 
@@ -113,7 +113,6 @@ function mouseOut() {
               <p class="movie__option"><strong>Time: </strong><%= offer.time %> <br/></p>
               <p class="movie__option"><strong>Detail: </strong><%= offer.detail %> <br/></p>
       </div>
-      <td> asd </td>
   </div>
 </tr>
 <% end %>
