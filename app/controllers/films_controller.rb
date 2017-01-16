@@ -29,6 +29,8 @@ class FilmsController < ApplicationController
     else
       render 'new'
     end
+
+
   end
 
   def show
@@ -53,8 +55,12 @@ class FilmsController < ApplicationController
   def destroy
     @film = Film.find(params[:id])
     @film.destroy
-
-    redirect_to films_path
+    respond_to do |format|
+          format.html { redirect_to films_url }
+          format.json { head :no_content }
+          format.js   { render :layout => false }
+       end
+    #redirect_to films_path
   end
 
 
