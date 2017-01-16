@@ -58,6 +58,7 @@ class OffersController < ApplicationController
     @offer.destroy
 
     redirect_to offers_path
+    end
   end
 
 end

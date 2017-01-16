@@ -10,7 +10,6 @@ $(document).ready(function(){
 });
 </script>
 
-
 <button class="btn btn-md btn--warning" id="hide">Hide table</button>
 <button class="btn btn-md btn--warning" id="show">Show table</button>
 
@@ -40,6 +39,10 @@ $(document).ready(function(){
       <td>
         <th><%= link_to "Show", offer_path(offer.id) %></th>
         <th><%= link_to "Edit", edit_offer_path(offer.id) %></th>
+        <td><%= link_to "Destroy", offer_path(offer.id),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %></td>
+        </button>
       </td>
   </tr>
   <% end %>
